@@ -1,14 +1,17 @@
 package org.hqf.tutorials.java.collection;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class HashMapProblem {
 
-    private HashMap map = new HashMap();
+    private int maxLength=65535;
+//    private HashMap map = new HashMap();
+    private ConcurrentHashMap map = new ConcurrentHashMap();
     public HashMapProblem() {
         Thread t1 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.put(new Integer(i), i);
                 }
                 System.out.println("t1 over");
@@ -16,7 +19,7 @@ public class HashMapProblem {
         };
         Thread t2 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.put(new Integer(i), i);
                 }
                 System.out.println("t2 over");
@@ -24,7 +27,7 @@ public class HashMapProblem {
         };
         Thread t3 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.put(new Integer(i), i);
                 }
                 System.out.println("t3 over");
@@ -32,7 +35,7 @@ public class HashMapProblem {
         };
         Thread t4 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.put(new Integer(i), i);
                 }
                 System.out.println("t4 over");
@@ -40,7 +43,7 @@ public class HashMapProblem {
         };
         Thread t5 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.put(new Integer(i), i);
                 }
                 System.out.println("t5 over");
@@ -48,7 +51,7 @@ public class HashMapProblem {
         };
         Thread t6 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.get(new Integer(i));
                 }
                 System.out.println("t6 over");
@@ -56,7 +59,7 @@ public class HashMapProblem {
         };
         Thread t7 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.get(new Integer(i));
                 }
                 System.out.println("t7 over");
@@ -64,7 +67,7 @@ public class HashMapProblem {
         };
         Thread t8 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.get(new Integer(i));
                 }
                 System.out.println("t8 over");
@@ -72,7 +75,7 @@ public class HashMapProblem {
         };
         Thread t9 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.get(new Integer(i));
                 }
                 System.out.println("t9 over");
@@ -80,7 +83,7 @@ public class HashMapProblem {
         };
         Thread t10 = new Thread() {
             public void run() {
-                for (int i = 0; i < 50000; i++) {
+                for (int i = 0; i < maxLength; i++) {
                     map.get(new Integer(i));
                 }
                 System.out.println("t10 over");
