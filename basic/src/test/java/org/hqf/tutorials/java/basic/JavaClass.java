@@ -7,9 +7,17 @@ public class JavaClass {
     @Test
     public void getClassName (){
 
-        System.out.println(String.format("this.simple className [%s]",this.getClass().getName()));
-        System.out.println(String.format("this.simple classSimpleName [%s]",this.getClass().getSimpleName()));
-        System.out.println(String.format("this.simple classTypeName [%s]",this.getClass().getTypeName()));
+        Class<? extends JavaClass> aClass = this.getClass();
+        System.out.println(String.format("this.simple className [%s]", aClass.getName()));
+        System.out.println(String.format("this.simple classSimpleName [%s]", aClass.getSimpleName()));
+        System.out.println(String.format("this.simple classTypeName [%s]", aClass.getTypeName()));
+    }
+
+
+    @Test
+    public void testGetCallerFunctionName(){
+       String funName=JavaClassDemo.getCallerFunctionName();
+        System.out.println("funName = " + funName);
     }
 
 }
