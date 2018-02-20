@@ -12,7 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="basic" target="1.5" />
+      <module name="basic" target="1.8" />
       <module name="collection" target="1.8" />
       <module name="lambda" target="1.8" />
       <module name="parent" target="1.8" />
