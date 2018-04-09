@@ -17,6 +17,7 @@
         <module>Logger</module>
         <module>xml</module>
         <module>regex</module>
+        <module>aop</module>
     </modules>
 
 
