@@ -15,7 +15,8 @@
         <module>lambda</module>
         <module>designPattern</module>
         <module>Logger</module>
-        <module>xmlDom</module>
+        <module>xml</module>
+        <module>regex</module>
     </modules>
 
 
