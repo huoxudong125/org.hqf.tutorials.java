@@ -25,7 +25,7 @@ public class BigDecimalDemo {
         BigDecimal bigDecimal = new BigDecimal("0.1");
         System.out.println("bigDecimal = " + bigDecimal);
 
-        double weight = 12345678901234567.123d;
+        double weight = 12345678901234567.123;
         BigDecimal bigDecimalWeight = new BigDecimal(weight);
         System.out.println("weight = " + weight);
         System.out.println("bigDecimalWeight = " + bigDecimalWeight);
@@ -37,7 +37,22 @@ public class BigDecimalDemo {
         System.out.println("bigDecimalVolume = " + bigDecimalVolume);
 
 
+        convertError();
+
+
     }
+
+    private static void convertError() {
+        String strEmpty="";
+        BigDecimal bigDecimalEmpty=new BigDecimal(strEmpty);
+        System.out.println("bigDecimal1 = " + bigDecimalEmpty);
+
+        String str=null;
+        BigDecimal bigDecimal1=new BigDecimal(str);
+        System.out.println("bigDecimal1 = " + bigDecimal1);
+    }
+
+
 
 
 }
