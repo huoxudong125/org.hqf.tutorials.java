@@ -8,10 +8,12 @@ package org.hqf.tutorials.java.basic;
  */
 public class StringDemo {
     public static void main(String[] args) {
-        String nullStr=null;
-        String formatedStr=String.format("null string output as [%s]",nullStr);
+        String nullStr = null;
+        String formatedStr = String.format("null string output as [%s]【%s】", nullStr, nullStr);
 
         System.out.println("nullStr = " + nullStr);
         System.out.println("formatedStr = " + formatedStr);
+
+
     }
 }
