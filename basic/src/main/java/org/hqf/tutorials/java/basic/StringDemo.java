@@ -1,5 +1,6 @@
 package org.hqf.tutorials.java.basic;
 
+
 /**
  * describe:
  *
@@ -13,6 +14,13 @@ public class StringDemo {
 
         System.out.println("nullStr = " + nullStr);
         System.out.println("formatedStr = " + formatedStr);
+
+
+        String intergerStr="1";
+        Integer integer=1;
+        System.out.println("intergerStr.equals(integer) = " + intergerStr.equals(integer.toString()));
+        System.out.println("intergerStr.equals(integer) = " + integer.equals(Integer.parseInt(intergerStr)));
+
 
 
     }
