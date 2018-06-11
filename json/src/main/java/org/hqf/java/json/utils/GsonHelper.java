@@ -1,4 +1,4 @@
-package org.hqf.java.json.Utils;
+package org.hqf.java.json.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

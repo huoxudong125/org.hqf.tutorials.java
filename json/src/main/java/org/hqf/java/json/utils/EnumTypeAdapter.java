@@ -1,4 +1,4 @@
-package org.hqf.java.json.Utils;
+package org.hqf.java.json.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
@@ -14,11 +14,12 @@ import java.util.Map;
 
 /**
  * describe:
+ * https://stackoverflow.com/a/49199095/1616023
  *
  * @author huoquanfu
  * @date 2018/06/11
  */
-public class EnumTypeAdapter <T extends Enum<T>> extends TypeAdapter<T> {
+public class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
     private final Map<Integer, T> nameToConstant = new HashMap<>();
     private final Map<T, Integer> constantToName = new HashMap<>();
 
@@ -29,7 +30,9 @@ public class EnumTypeAdapter <T extends Enum<T>> extends TypeAdapter<T> {
             constantToName.put(constant, name);
         }
     }
-    @Override public T read(JsonReader in) throws IOException {
+
+    @Override
+    public T read(JsonReader in) throws IOException {
         if (in.peek() == JsonToken.NULL) {
             in.nextNull();
             return null;
@@ -37,13 +40,15 @@ public class EnumTypeAdapter <T extends Enum<T>> extends TypeAdapter<T> {
         return nameToConstant.get(in.nextInt());
     }
 
-    @Override public void write(JsonWriter out, T value) throws IOException {
+    @Override
+    public void write(JsonWriter out, T value) throws IOException {
         out.value(value == null ? null : constantToName.get(value));
     }
 
     public static final TypeAdapterFactory ENUM_FACTORY = new TypeAdapterFactory() {
         @SuppressWarnings({"rawtypes", "unchecked"})
-        @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
             Class<? super T> rawType = typeToken.getRawType();
             if (!Enum.class.isAssignableFrom(rawType) || rawType == Enum.class) {
                 return null;

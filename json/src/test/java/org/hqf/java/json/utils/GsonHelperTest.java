@@ -1,4 +1,4 @@
-package org.hqf.java.json.Utils;
+package org.hqf.java.json.utils;
 
 import org.hqf.java.json.People;
 import org.hqf.java.json.TitleTypeEnum;
@@ -7,8 +7,6 @@ import org.junit.Test;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.junit.Assert.*;
 
 public class GsonHelperTest {
 
