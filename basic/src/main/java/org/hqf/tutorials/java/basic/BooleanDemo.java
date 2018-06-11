@@ -10,9 +10,14 @@ public class BooleanDemo {
         boolValue = !shortageReceiveFlag.equals(0);
         System.out.println("boolValue = " + boolValue);
 
-        shortageReceiveFlag=null;
-        boolValue = !shortageReceiveFlag.equals(0);
-        System.out.println("boolValue = " + boolValue);
+//        shortageReceiveFlag=null;
+//        boolValue = !shortageReceiveFlag.equals(0);
+//        System.out.println("boolValue = " + boolValue);
+
+
+        Boolean nullBoolean=null;
+        System.out.println("nullBoolean = " + Boolean.FALSE.equals(nullBoolean));
+        System.out.println("nullBoolean = " + Boolean.TRUE.equals(nullBoolean));
 
 
     }
