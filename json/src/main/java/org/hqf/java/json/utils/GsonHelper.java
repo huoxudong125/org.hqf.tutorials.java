@@ -19,4 +19,15 @@ public class GsonHelper {
         Gson gson = gsonBuilder.create();
         return gson.toJson(obj);
     }
+
+    public static <T extends Object> T deserialize(String jsonStr,Class<T> type){
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setPrettyPrinting();
+        gsonBuilder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        gsonBuilder.registerTypeAdapterFactory(EnumTypeAdapter.ENUM_FACTORY);
+
+        Gson gson = gsonBuilder.create();
+
+        return gson.fromJson(jsonStr,type);
+    }
 }

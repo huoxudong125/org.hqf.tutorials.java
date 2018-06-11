@@ -18,6 +18,9 @@
         <module>xml</module>
         <module>regex</module>
         <module>aop</module>
+        <module>guava</module>
+        <module>utils</module>
+        <module>json</module>
     </modules>
 
 
