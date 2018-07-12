@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  * @author huoquanfu
  * @date 2018/04/27
  */
-public class apache {
+public class ApacheNumberUtils {
 
     public static void main(String[] args) {
 
