@@ -1,11 +1,15 @@
 import org.junit.Test;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
 //Let's import Mockito statically so that the code looks clearer
 import static org.mockito.Mockito.*;
 
-import static org.junit.Assert.*;
 
 /**
  * @see <a href="http://static.javadoc.io/org.mockito/mockito-core/2.19.0/org/mockito/Mockito.html">Mockito</a>
@@ -56,6 +60,7 @@ public class MockBasicDemoTest {
 
     /**
      * 测试集合 迭代
+     *
      * @see <a href="https://stackoverflow.com/a/6379456/1616023">Testing Java enhanced for behavior with Mockito</a>
      */
     @Test
@@ -73,5 +78,30 @@ public class MockBasicDemoTest {
         for (Object fruit : fruits) {
             System.out.println("fruit = " + fruit);
         }
+    }
+
+    /**
+     * 调用某方法后直接回车
+     */
+    @Test
+    public void TestCallbackMock() {
+        Animal mock = mock(Animal.class);
+        when(mock.getFixValue()).thenCallRealMethod();
+
+
+        when(mock.sayHello(anyString())).thenAnswer(new Answer() {
+            public Object answer(InvocationOnMock invocation) {
+                Object[] args = invocation.getArguments();
+                Object mock = invocation.getMock();
+
+                System.out.println("mock = " + ((Animal) mock).getName());
+
+                return "called with arguments: " + args[0];
+            }
+        });
+
+        //the following prints "called with arguments: foo"
+        System.out.println(mock.sayHello("foo"));
+        System.out.println("real method get:" + mock.getFixValue());
     }
 }
