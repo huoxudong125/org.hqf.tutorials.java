@@ -22,6 +22,7 @@
         <module>utils</module>
         <module>json</module>
         <module>java_reflect</module>
+        <module>java_uinitTest</module>
     </modules>
 
 
