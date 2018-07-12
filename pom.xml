@@ -21,6 +21,7 @@
         <module>guava</module>
         <module>utils</module>
         <module>json</module>
+        <module>java_reflect</module>
     </modules>
 
 
