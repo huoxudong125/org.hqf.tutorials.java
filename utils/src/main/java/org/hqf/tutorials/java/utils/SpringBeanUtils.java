@@ -7,7 +7,7 @@ import org.springframework.beans.BeanUtils;
  * @Description
  * @date 2018/07/12
  */
-public class ApacheBeanUtils {
+public class SpringBeanUtils {
 
     public static void main(String[] args) {
         TestSameObject();
