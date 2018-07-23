@@ -33,8 +33,8 @@ public class JavaDemo {
     /**
      * 打印信息
      *
-     * @param message
-     * @param ynEnum
+     * @param message 要打印的消息
+     * @param ynEnum 是否打印的枚举
      */
     public void print(String message, YnEnum ynEnum) {
         if (YnEnum.YES.getCode().equals(ynEnum.getCode())) {
