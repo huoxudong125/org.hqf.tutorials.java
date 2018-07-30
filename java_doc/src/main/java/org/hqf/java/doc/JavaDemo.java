@@ -25,8 +25,10 @@ public class JavaDemo {
     public static void main(String[] args) {
         JavaDemo demo = new JavaDemo();
         System.out.println(demo.message);
-        System.out.print(demo.upcaseMessage());
+        System.out.print(demo.makeMessageUpperCase());
         System.out.print(demo.getChars(2, 6));
+
+        demo.printMessage(demo.message,YnEnum.YES);
     }
 
 
@@ -36,7 +38,7 @@ public class JavaDemo {
      * @param message 要打印的消息
      * @param ynEnum 是否打印的枚举
      */
-    public void print(String message, YnEnum ynEnum) {
+    public void printMessage(String message, YnEnum ynEnum) {
         if (YnEnum.YES.getCode().equals(ynEnum.getCode())) {
             System.out.println("message = " + message);
         } else {
@@ -48,12 +50,12 @@ public class JavaDemo {
     /**
      * 从message中获取指定的字串
      *
-     * @param i  子串的开始下标
-     * @param i1 子串的结束目标
+     * @param startIndex  子串的开始下标
+     * @param endIndex 子串的结束目标
      * @return 从开始到结束的子串
      */
-    private String getChars(int i, int i1) {
-        return message.substring(i, i1);
+    private String getChars(int startIndex , int endIndex) {
+        return message.substring(startIndex, endIndex);
     }
 
     /**
@@ -61,7 +63,7 @@ public class JavaDemo {
      *
      * @return 大写的字符串
      */
-    private String upcaseMessage() {
+    private String makeMessageUpperCase() {
         return message.toUpperCase();
     }
 
