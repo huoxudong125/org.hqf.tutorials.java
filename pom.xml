@@ -24,6 +24,7 @@
         <module>java_reflect</module>
         <module>java_uinitTest</module>
         <module>java_doc</module>
+        <module>officeUtils</module>
     </modules>
 
 
