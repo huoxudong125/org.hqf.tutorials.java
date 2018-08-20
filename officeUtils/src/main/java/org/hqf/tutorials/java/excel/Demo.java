@@ -1,10 +1,9 @@
 package org.hqf.tutorials.java.excel;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
@@ -18,24 +17,31 @@ import java.io.IOException;
  */
 public class Demo {
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String args[]) {
 
-        //Create an array with the data in the same order in which you //expect to be filled in excel file
-        String[] valueToWrite = {"abc@gmail.com", "Pass@123"};
 
-        //Create an object of current class
-        Demo objExcelFile = new Demo();
+        try {
+            //Create an array with the data in the same order in which you //expect to be filled in excel file
+            String[] valueToWrite = {"abc@gmail.com", "Pass@123"};
 
-        //Write the file using file name, sheet name and the data to be filled
-        objExcelFile.writeExcel(System.getProperty("user.dir") + "\\testData", "data.xlsx", "LoginDataSheet", valueToWrite);
+            //Create an object of current class
+            Demo objExcelFile = new Demo();
 
-        //Prepare the path of excel file
+            //Write the file using file name, sheet name and the data to be filled
+            objExcelFile.writeExcel(System.getProperty("user.dir") + "\\testData", "data.xlsx", "LoginDataSheet", valueToWrite);
 
-        String filePath = System.getProperty("user.dir") + "\\testData";
+            //Prepare the path of excel file
+            String filePath = System.getProperty("user.dir") + "\\testData";
 
-        //Call read file method of the class to read data
+            //Call read file method of the class to read data
+            objExcelFile.readExcelFile(filePath, "data.xlsx", "LoginDataSheet");
 
-        objExcelFile.readExcelFile(filePath, "data.xlsx", "LoginDataSheet");
+            //read special column
+            String name = objExcelFile.readdatafromExcelusingcolumnName("name");
+            System.out.println("name = " + name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -170,6 +176,35 @@ public class Demo {
         //close output stream
 
         outputStream.close();
+
+    }
+
+    public String readdatafromExcelusingcolumnName(String ColumnName)
+            throws EncryptedDocumentException, InvalidFormatException, IOException {
+        String SheetName = "LoginDataSheet";
+        File file = new File("testData\\data.xlsx");
+        FileInputStream fi = new FileInputStream(file);
+        Workbook wb = WorkbookFactory.create(fi);
+        Sheet sheet = wb.getSheet(SheetName);
+        // it will take value from first row
+        Row row = sheet.getRow(0);
+        // it will give you count of row which is used or filled
+        short lastcolumnused = row.getLastCellNum();
+
+        int colnum = 0;
+        for (int i = 0; i < lastcolumnused; i++) {
+            if (row.getCell(i).getStringCellValue().equalsIgnoreCase(ColumnName)) {
+                colnum = i;
+                break;
+            }
+        }
+
+        // it will take value from Second row
+        row = sheet.getRow(1);
+        Cell column = row.getCell(colnum);
+        String CellValue = column.getStringCellValue();
+
+        return CellValue;
 
     }
 }
