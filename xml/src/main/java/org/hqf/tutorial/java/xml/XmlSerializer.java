@@ -22,14 +22,14 @@ public class XmlSerializer {
         XStream xStream = new XStream(new DomDriver());
         xStream.ignoreUnknownElements();
         setClassAliasMap(map, xStream);
+        xStream.autodetectAnnotations(true);
         return xStream.fromXML(message);
     }
 
 
-
-    public static String serialize(Object obj,Map map) {
+    public static String serialize(Object obj, Map map) {
         XStream xStream = new XStream(new DomDriver());
-        setClassAliasMap(map,xStream);
+        setClassAliasMap(map, xStream);
         return xStream.toXML(obj);
     }
 

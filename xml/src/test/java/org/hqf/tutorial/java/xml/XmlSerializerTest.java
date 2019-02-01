@@ -8,11 +8,13 @@ import java.util.HashMap;
 
 public class XmlSerializerTest {
 
-    private  HashMap<String, Class> classAliasMap=new HashMap<String, Class>();;
+    private HashMap<String, Class> classAliasMap = new HashMap<String, Class>();
+    ;
 
     @Before
     public void setUp() throws Exception {
 
+        classAliasMap.put("A", ClassA.class);
         classAliasMap.put("A", ClassA.class);
     }
 
@@ -23,14 +25,14 @@ public class XmlSerializerTest {
     @Test
     public void deserialize() {
 
-     String xmlStr="<A>\n" +
-             "  <id>2</id>\n" +
-             "  <age>20</age>\n" +
-             "  <name>hqf</name>\n" +
-             "</A>";
+        String xmlStr = "<A>\n" +
+                "  <id>2</id>\n" +
+                "  <age>20</age>\n" +
+                "  <name>hqf</name>\n" +
+                "</A>";
 
         try {
-            System.out.println("XmlSerializer.deserialize = " + XmlSerializer.deserialize(xmlStr,ClassA.class, classAliasMap).toString());
+            System.out.println("XmlSerializer.deserialize = " + XmlSerializer.deserialize(xmlStr, ClassA.class, classAliasMap).toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,6 +48,31 @@ public class XmlSerializerTest {
         a.setName("hqf");
 
         System.out.println("XmlSerializer.serialize = " + XmlSerializer.serialize(a, classAliasMap));
+
+    }
+
+
+    @Test
+    public void deserialize2() {
+
+        String xmlStr = "<A>\n" +
+                "  <id>2</id>\n" +
+                "  <age>20</age>\n" +
+                "  <name>hqf</name>\n" +
+                "<classBs>" +
+                "<classBAlias>" +
+                "<classAliasField>alias</classAliasField>" +
+                "<field>field</field>" +
+                "</classBAlias>" +
+                "</classBs>" +
+                "</A>";
+
+        try {
+            Object deserialize = XmlSerializer.deserialize(xmlStr, ClassA.class, classAliasMap);
+            System.out.println("XmlSerializer.deserialize = " + deserialize.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
