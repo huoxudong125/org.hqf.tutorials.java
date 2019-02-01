@@ -37,7 +37,7 @@ public class Demo {
             objExcelFile.readExcelFile(filePath, "data.xlsx", "LoginDataSheet");
 
             //read special column
-            String name = objExcelFile.readdatafromExcelusingcolumnName("name");
+            String name = objExcelFile.readDataFromExcelUsingColumnName("name");
             System.out.println("name = " + name);
         } catch (Exception e) {
             e.printStackTrace();
@@ -179,7 +179,7 @@ public class Demo {
 
     }
 
-    public String readdatafromExcelusingcolumnName(String ColumnName)
+    public String readDataFromExcelUsingColumnName(String ColumnName)
             throws EncryptedDocumentException, InvalidFormatException, IOException {
         String SheetName = "LoginDataSheet";
         File file = new File("testData\\data.xlsx");

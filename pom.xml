@@ -5,8 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.hqf.tutorials.java</groupId>
-    <artifactId>parent</artifactId>
-    <name>org.hqf.tutorials.java</name>
+    <artifactId>java_tutorial_hqf</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
@@ -25,6 +24,7 @@
         <module>java_uinitTest</module>
         <module>java_doc</module>
         <module>officeUtils</module>
+        <module>io</module>
     </modules>
 
 
