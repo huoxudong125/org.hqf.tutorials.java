@@ -30,29 +30,33 @@ public class BigDecimalDemo {
         System.out.println("weight = " + weight);
         System.out.println("bigDecimalWeight = " + bigDecimalWeight);
 
-
-        double volume=12345678901234.123456;
-        BigDecimal bigDecimalVolume=new BigDecimal(volume);
+        double volume = 12345678901234.123456;
+        BigDecimal bigDecimalVolume = new BigDecimal(volume);
         System.out.println("volume = " + volume);
         System.out.println("bigDecimalVolume = " + bigDecimalVolume);
 
-
         convertError();
-
 
     }
 
     private static void convertError() {
-        String strEmpty="";
-        BigDecimal bigDecimalEmpty=new BigDecimal(strEmpty);
-        System.out.println("bigDecimal1 = " + bigDecimalEmpty);
+        try {
+            String strEmpty = "";
+            BigDecimal bigDecimalEmpty = new BigDecimal(strEmpty);
+            System.out.println("bigDecimal1 = " + bigDecimalEmpty);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        String str=null;
-        BigDecimal bigDecimal1=new BigDecimal(str);
-        System.out.println("bigDecimal1 = " + bigDecimal1);
+        try {
+            String str = null;
+            BigDecimal bigDecimal1 = new BigDecimal(str);
+            System.out.println("bigDecimal1 = " + bigDecimal1);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
     }
-
-
-
 
 }
