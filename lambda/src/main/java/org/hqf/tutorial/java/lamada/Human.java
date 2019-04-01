@@ -1,3 +1,5 @@
+package org.hqf.tutorial.java.lamada;
+
 public class Human {
 
 

@@ -25,6 +25,7 @@
         <module>java_doc</module>
         <module>officeUtils</module>
         <module>io</module>
+        <module>jvm</module>
     </modules>
 
 
