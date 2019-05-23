@@ -1,6 +1,6 @@
-package org.hqf.java.staticProxy.service.extend;
+package org.hqf.java.dynamicProxy.jdk.extend;
 
-import org.hqf.java.staticProxy.service.HelloService;
+import org.hqf.java.dynamicProxy.jdk.service.HelloService;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

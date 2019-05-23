@@ -1,4 +1,4 @@
-package org.hqf.java.staticProxy.service;
+package org.hqf.java.dynamicProxy.jdk.service;
 
 /**
  * Title: <br>

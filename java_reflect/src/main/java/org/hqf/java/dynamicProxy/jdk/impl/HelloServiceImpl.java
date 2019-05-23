@@ -1,6 +1,6 @@
-package org.hqf.java.staticProxy.service.impl;
+package org.hqf.java.dynamicProxy.jdk.impl;
 
-import org.hqf.java.staticProxy.service.HelloService;
+import org.hqf.java.dynamicProxy.jdk.service.HelloService;
 
 /**
  * Title: <br>

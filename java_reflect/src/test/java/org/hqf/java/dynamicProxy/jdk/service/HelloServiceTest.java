@@ -1,6 +1,6 @@
-package org.hqf.java.staticProxy.service;
+package org.hqf.java.dynamicProxy.jdk.service;
 
-import org.hqf.java.staticProxy.service.extend.StaticProxiedHelloService;
+import org.hqf.java.dynamicProxy.jdk.extend.StaticProxiedHelloService;
 import org.junit.Test;
 
 public class HelloServiceTest {
