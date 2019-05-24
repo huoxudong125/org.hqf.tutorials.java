@@ -14,10 +14,15 @@ public class HelloServiceGrainProcessorTest {
         enhancer.setCallback(new MyMethodInterceptor());
 
         HelloServiceGrainProcessor hello = (HelloServiceGrainProcessor) enhancer.create();
+
+        hello.setData("test property");
+
         String str = "I love you!";
         System.out.println("inputValue = " + str);
         String result = hello.sayHello(str);
         System.out.println("result=" + result);
+
+        System.out.println("hello.data = " + hello.getData());
 
     }
 }
