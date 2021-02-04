@@ -35,11 +35,17 @@ public class ReflectPrivateDemo {
             System.out.println("i = " + lMethod.invoke(cls,0));
 
 
+            //访问私有private 字段
             Field field = c.getDeclaredField("i");
             field.setAccessible(true);
             field.set(cls, 100);
 
-            System.out.println("i = " + m.invoke(cls).toString());
+            //访问私有private 字段
+            field = c.getField("j");
+            field.setAccessible(true);
+            field.set(cls, 200);
+
+            System.out.println("j= " + cls.toString());
 
 
 
@@ -70,4 +76,14 @@ class ClassDemo {
     }
 
     private int i = 78655;
+
+    public int j;
+
+    @Override
+    public String toString() {
+        return "ClassDemo{" +
+                "i=" + i +
+                ", j=" + j +
+                '}';
+    }
 }
