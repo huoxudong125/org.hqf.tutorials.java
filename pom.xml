@@ -25,7 +25,9 @@
         <module>java_doc</module>
         <module>officeUtils</module>
         <module>io</module>
-        <module>jvm</module>
+        <module>junit</module>
+        <module>multithread</module>
+        <module>mapstruct</module>
     </modules>
 
 
@@ -41,7 +43,11 @@
 
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.26</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
