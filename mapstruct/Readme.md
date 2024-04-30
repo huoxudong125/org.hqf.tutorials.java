@@ -75,7 +75,7 @@ MapStruct入门例子
 
 如下示例基于IDEA实现，可以在build阶段的`annotationProcessorPaths`中配置`mapstruct-processor`的path。
 
-```
+``` xml
 <packaging>jar</packaging>
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -116,19 +116,15 @@ MapStruct入门例子
 <build>
     <pluginManagement>
         <plugins>
+        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
+                
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     <annotationProcessorPaths>
                         <path>
@@ -143,7 +139,9 @@ MapStruct入门例子
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
+                
             </plugin>
+            
         </plugins>
     </pluginManagement>
 </build> 
@@ -153,7 +151,7 @@ MapStruct入门例子
 
 这里面假设基于一些业务需求采用的是MySQL，且将一些扩展的数据放在了config字段中，并以JSON转String存储。
 
-```
+``` java
 @Data
 @Accessors(chain = true)
 public class User {
@@ -175,7 +173,7 @@ public class User {
 *   将日期转换；
 *   config要转成对象的list；
 
-```
+``` java
 @Data
 @Accessors(chain = true)
 public class UserVo {
@@ -201,7 +199,7 @@ public class UserVo {
 *   这里没用@Mappings，且看最后编译出的类文件，会自动加
 *   密码需要ignore
 
-```
+``` java
 @Mapper
 public interface UserConverter {
     UserConverter INSTANCE = Mappers.getMapper(UserConverter.class);
@@ -229,7 +227,7 @@ public interface UserConverter {
 
 ### 测试类
 
-```
+```java
 @Test
 public void do2VoTest() {
     User user = new User()
@@ -293,7 +291,7 @@ MapStruct 来生成的代码， 其类似于人手写。 速度上可以得到�
 
 *   编译后的内容
 
-```
+``` java
 public class UserConverterImpl implements UserConverter {
 
     @Override
@@ -404,7 +402,7 @@ MapStruct更多例子
 
 上述例子中User对象的config属性是一个JSON字符串，UserVo对象中是List类型的，这需要实现JSON字符串与对象的互转。
 
-```
+``` java
 default List<UserConfig> strConfigToListUserConfig(String config) {
   return JSON.parseArray(config, UserConfig.class);
 }
@@ -424,7 +422,7 @@ default String listUserConfigToStrConfig(List<UserConfig> list) {
 
 比如上面例子中User可以转为UserQueryParam, 业务功能上比如通过UserQueryParam里面的参数进行查找用户的。
 
-```
+``` java
 @Data
 @Accessors(chain = true)
 public class UserQueryParam {
@@ -435,7 +433,7 @@ public class UserQueryParam {
 
 添加转换方法
 
-```
+``` java
 UserQueryParam vo2QueryParam(User var1); 
 ```
 
@@ -447,7 +445,7 @@ UserQueryParam vo2QueryParam(User var1);
 
 当添加`componentModel="spring"`时，它会在实现类上自动添加`@Component`注解，这样就能被Spring记性component scan，从而加载到springContext中，进而被`@Autowird`注入使用。（其它还有`jsr330`和`cdi`标准，基本上使用`componentModel="spring"`就够了）。
 
-```
+``` java
 @Mapper(componentModel="spring")
 public interface UserConverter {
 
@@ -456,7 +454,7 @@ public interface UserConverter {
 
 *   引入和测试
 
-```
+``` java
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -476,7 +474,7 @@ public class UserConverterTest {
 
 *   Address
 
-```
+```java
 @Data
 public class Address {
     private String street;
@@ -488,7 +486,7 @@ public class Address {
 
 *   UserWithAddressVo
 
-```
+```java
 @Data
 public class UserWithAddressVo {
 
@@ -503,7 +501,7 @@ public class UserWithAddressVo {
 
 *   converter方法
 
-```
+```java
 @Mapping(source = "person.description", target = "description")
 @Mapping(source = "address.houseNo", target = "houseNumber")
 UserWithAddressVo userAndAddress2Vo(User user, Address address); 
@@ -517,7 +515,7 @@ UserWithAddressVo userAndAddress2Vo(User user, Address address);
 
 属性也可以直接从传入的参数来赋值。
 
-```
+```java
 @Mapping(source = "person.description", target = "description")
 @Mapping(source = "hn", target = "houseNumber")
 UserWithAddressVo userAndAddressHn2Vo(User user, Integer hn); 
@@ -538,7 +536,7 @@ MapStruct再深入理解
 
 *   在IntelliJ 2018.1.1之前, 注意在早期的版本中`artifactId`还需要加jdk版本，比如`mapstruct-jdk8`；
 
-```
+``` xml
 <dependency>
   <groupId>org.mapstruct</groupId>
   <artifactId>mapstruct</artifactId>
@@ -553,7 +551,7 @@ MapStruct再深入理解
 
 *   **在IntelliJ 2018.1.1之后**是可以不添加`mapstruct-processor`的
 
-```
+``` xml
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -621,7 +619,7 @@ MapStruct再深入理解
 
 同时在pom.xml中推荐你加入如下配置, 原因请看官方给的如下注释:
 
-```
+``` xml
 <properties>
     
     <m2e.apt.activation>jdt_apt</m2e.apt.activation>
