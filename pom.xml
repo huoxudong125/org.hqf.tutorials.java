@@ -28,6 +28,7 @@
         <module>junit</module>
         <module>multithread</module>
         <module>mapstruct</module>
+        <module>reflect-demo</module>
     </modules>
 
 
