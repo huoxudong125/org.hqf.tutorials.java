@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
         Person person1 = new Person("Alice", 25, "Engineer");
         Person person2 = new Person("Bob", 30, "Teacher");
         Person person3 = new Person("Charlie", 35, "Doctor");

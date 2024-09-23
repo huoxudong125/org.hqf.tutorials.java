@@ -29,6 +29,7 @@
         <module>multithread</module>
         <module>mapstruct</module>
         <module>reflect-demo</module>
+        <module>json-demo</module>
     </modules>
 
 
