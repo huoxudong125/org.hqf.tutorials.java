@@ -30,6 +30,7 @@
         <module>mapstruct</module>
         <module>reflect-demo</module>
         <module>json-demo</module>
+        <module>java-datetime</module>
     </modules>
 
 
